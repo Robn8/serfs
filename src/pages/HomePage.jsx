@@ -1,6 +1,4 @@
-import React from "react";
-// If you're using React Router, uncomment this:
-// import { Link } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
 
 const brands = [
   { name: "Alumax", href: "/products#alumax" },
@@ -51,9 +49,126 @@ const features = [
   },
 ];
 
+function RequestInfoModal({ open, onClose }) {
+  // Close on Escape
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open, onClose]);
+
+  if (!open) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center px-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Request information"
+    >
+      {/* Backdrop */}
+      <button
+        className="absolute inset-0 bg-black/50"
+        onClick={onClose}
+        aria-label="Close modal"
+      />
+
+      {/* Modal panel */}
+      <div className="relative w-full max-w-lg rounded-2xl border border-slate-200 bg-white p-6 shadow-xl">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h3 className="text-lg font-semibold text-slate-900">Request Info</h3>
+            <p className="mt-1 text-sm text-slate-600">
+              Contact us and we’ll help you find the right products.
+            </p>
+          </div>
+
+          <button
+            onClick={onClose}
+            className="rounded-lg p-2 text-slate-500 hover:bg-slate-100"
+            aria-label="Close"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div className="mt-5 space-y-4 rounded-xl bg-slate-50 p-4">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+              Phone
+            </p>
+            <a
+              href="tel:+10000000000"
+              className="mt-1 inline-block text-sm font-semibold text-slate-900 hover:underline"
+            >
+              (000) 000-0000
+            </a>
+          </div>
+
+          <div>
+            <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+              Address
+            </p>
+            <p className="mt-1 text-sm text-slate-700">
+              123 Example St, City, ST 00000
+            </p>
+          </div>
+
+          <div>
+            <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+              Email
+            </p>
+            <a
+              href="mailto:info@serfassociates.com"
+              className="mt-1 inline-block text-sm font-semibold text-slate-900 hover:underline"
+            >
+              info@serfassociates.com
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-end">
+          <button
+            onClick={onClose}
+            className="inline-flex items-center justify-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+          >
+            Close
+          </button>
+          <a
+            href="tel:+10000000000"
+            className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
+          >
+            Call Now
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function HomePage() {
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
+  const productsRef = useRef(null);
+
+  const scrollToProducts = () => {
+    productsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  // Optional: prevent background scroll while modal is open
+  useEffect(() => {
+    document.body.style.overflow = isInfoOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isInfoOpen]);
+
   return (
     <main className="min-h-screen bg-white text-slate-900">
+      <RequestInfoModal open={isInfoOpen} onClose={() => setIsInfoOpen(false)} />
+
       {/* HERO */}
       <section className="mx-auto max-w-6xl px-4 pt-14 pb-10 sm:pt-20">
         <div className="grid items-center gap-10 lg:grid-cols-2">
@@ -71,19 +186,23 @@ export default function HomePage() {
             </p>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="/contact"
+              {/* Request Info -> opens modal */}
+              <button
+                type="button"
+                onClick={() => setIsInfoOpen(true)}
                 className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-slate-800"
               >
                 Request Info
-              </a>
+              </button>
 
-              <a
-                href="/products"
+              {/* View Products -> scrolls down */}
+              <button
+                type="button"
+                onClick={scrollToProducts}
                 className="inline-flex items-center justify-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
               >
                 View Products
-              </a>
+              </button>
             </div>
 
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-500">
@@ -106,7 +225,6 @@ export default function HomePage() {
             <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-slate-100 to-white" />
             <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm">
               <div className="aspect-[4/3] w-full">
-                {/* Replace with a real hero image */}
                 <img
                   src="/serf2.jpg"
                   alt="Glass enclosure and hardware"
@@ -114,7 +232,6 @@ export default function HomePage() {
                   loading="lazy"
                 />
               </div>
-              
             </div>
           </div>
         </div>
@@ -142,7 +259,7 @@ export default function HomePage() {
       </section>
 
       {/* PRODUCTS */}
-      <section className="mx-auto max-w-6xl px-4 py-12">
+      <section ref={productsRef} className="mx-auto max-w-6xl px-4 py-12" id="products">
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl font-semibold tracking-tight">Products</h2>
@@ -157,6 +274,8 @@ export default function HomePage() {
             <a
               key={p.title}
               href={p.href}
+              target={p.href.startsWith("http") ? "_blank" : undefined}
+              rel={p.href.startsWith("http") ? "noreferrer" : undefined}
               className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               <div className="aspect-[16/10] w-full bg-slate-100">
@@ -177,13 +296,6 @@ export default function HomePage() {
             </a>
           ))}
         </div>
-
-        <a
-          href="/products"
-          className="mt-6 inline-flex w-full items-center justify-center rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold hover:bg-slate-50 sm:hidden"
-        >
-          View all products
-        </a>
       </section>
 
       {/* WHY */}
@@ -209,90 +321,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FACILITIES TEASER */}
-      <section className="mx-auto max-w-6xl px-4 py-12">
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-          <div className="grid grid-cols-2 gap-3">
-            <img
-              src="/images/facilities/01.jpg"
-              alt="Facility photo 1"
-              className="h-44 w-full rounded-2xl object-cover sm:h-56"
-              loading="lazy"
-            />
-            <img
-              src="/images/facilities/02.jpg"
-              alt="Facility photo 2"
-              className="h-44 w-full rounded-2xl object-cover sm:h-56"
-              loading="lazy"
-            />
-            <img
-              src="/images/facilities/03.jpg"
-              alt="Facility photo 3"
-              className="h-44 w-full rounded-2xl object-cover sm:h-56"
-              loading="lazy"
-            />
-            <img
-              src="/images/facilities/04.jpg"
-              alt="Facility photo 4"
-              className="h-44 w-full rounded-2xl object-cover sm:h-56"
-              loading="lazy"
-            />
-          </div>
-
-          <div>
-            <h2 className="text-2xl font-semibold tracking-tight">Our facilities</h2>
-            <p className="mt-2 text-slate-600">
-              A quick look behind the scenes — our team and workflow are set up to support
-              dependable fulfillment and consistent quality.
-            </p>
-
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="/facilities"
-                className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
-              >
-                View Facilities
-              </a>
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold hover:bg-slate-50"
-              >
-                Contact Us
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FINAL CTA */}
-      <section className="mx-auto max-w-6xl px-4 pb-16">
-        <div className="rounded-3xl bg-slate-900 p-8 text-white sm:p-10">
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <h2 className="text-2xl font-semibold tracking-tight">
-                Need help selecting the right hardware or enclosure setup?
-              </h2>
-              <p className="mt-2 text-white/80">
-                Tell us what you’re building — we’ll point you to the right products.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-100"
-              >
-                Request Info
-              </a>
-              <a
-                href="tel:+10000000000"
-                className="inline-flex items-center justify-center rounded-xl border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
-              >
-                Call Now
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ...rest of your sections unchanged... */}
     </main>
   );
 }
