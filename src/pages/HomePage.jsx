@@ -50,7 +50,6 @@ const features = [
 ];
 
 function RequestInfoModal({ open, onClose }) {
-  // Close on Escape
   useEffect(() => {
     if (!open) return;
     const onKeyDown = (e) => {
@@ -157,7 +156,6 @@ export default function HomePage() {
     productsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  // Optional: prevent background scroll while modal is open
   useEffect(() => {
     document.body.style.overflow = isInfoOpen ? "hidden" : "";
     return () => {
@@ -182,11 +180,11 @@ export default function HomePage() {
             </h1>
 
             <p className="mt-4 text-lg leading-relaxed text-slate-600">
-              A customer-first partner for heavy shower door glass, quality product lines and reliable support.
+              A customer-first partner for heavy shower door glass, quality product lines and
+              reliable support.
             </p>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              {/* Request Info -> opens modal */}
               <button
                 type="button"
                 onClick={() => setIsInfoOpen(true)}
@@ -195,7 +193,6 @@ export default function HomePage() {
                 Request Info
               </button>
 
-              {/* View Products -> scrolls down */}
               <button
                 type="button"
                 onClick={scrollToProducts}
@@ -290,7 +287,10 @@ export default function HomePage() {
                 <h3 className="text-base font-semibold">{p.title}</h3>
                 <p className="mt-1 text-sm text-slate-600">{p.desc}</p>
                 <div className="mt-3 text-sm font-semibold text-slate-900">
-                  Explore <span className="ml-1 inline-block transition group-hover:translate-x-0.5">→</span>
+                  Explore{" "}
+                  <span className="ml-1 inline-block transition group-hover:translate-x-0.5">
+                    →
+                  </span>
                 </div>
               </div>
             </a>
@@ -321,7 +321,91 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ...rest of your sections unchanged... */}
+      {/* FACILITIES TEASER */}
+      <section className="mx-auto max-w-6xl px-4 py-12">
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+          <div className="grid grid-cols-2 gap-3">
+            <img
+              src="/images/facilities/01.jpg"
+              alt="Facility photo 1"
+              className="h-44 w-full rounded-2xl object-cover sm:h-56"
+              loading="lazy"
+            />
+            <img
+              src="/images/facilities/02.jpg"
+              alt="Facility photo 2"
+              className="h-44 w-full rounded-2xl object-cover sm:h-56"
+              loading="lazy"
+            />
+            <img
+              src="/images/facilities/03.jpg"
+              alt="Facility photo 3"
+              className="h-44 w-full rounded-2xl object-cover sm:h-56"
+              loading="lazy"
+            />
+            <img
+              src="/images/facilities/04.jpg"
+              alt="Facility photo 4"
+              className="h-44 w-full rounded-2xl object-cover sm:h-56"
+              loading="lazy"
+            />
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight">Our facilities</h2>
+            <p className="mt-2 text-slate-600">
+              A quick look behind the scenes — our team and workflow are set up to support
+              dependable fulfillment and consistent quality.
+            </p>
+
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="/facilities"
+                className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
+              >
+                View Facilities
+              </a>
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold hover:bg-slate-50"
+              >
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="mx-auto max-w-6xl px-4 pb-16">
+        <div className="rounded-3xl bg-slate-900 p-8 text-white sm:p-10">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h2 className="text-2xl font-semibold tracking-tight">
+                Need help selecting the right hardware or enclosure setup?
+              </h2>
+              <p className="mt-2 text-white/80">
+                Tell us what you’re building — we’ll point you to the right products.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <button
+                type="button"
+                onClick={() => setIsInfoOpen(true)}
+                className="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-100"
+              >
+                Request Info
+              </button>
+              <a
+                href="tel:+10000000000"
+                className="inline-flex items-center justify-center rounded-xl border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
+              >
+                Call Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
