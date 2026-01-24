@@ -14,25 +14,25 @@ const productCards = [
     title: "Heavy Glass Enclosures",
     desc: "Clean lines, durable components, premium feel.",
     href: "/products#heavy-glass",
-    image: "/images/products/heavy-glass.jpg",
+    image: "/serf3.jpg",
   },
   {
     title: "Alumax Systems",
     desc: "Enclosure systems and components from a trusted brand.",
-    href: "/products#alumax",
-    image: "/images/products/alumax.jpg",
+    href: "https://www.alumaxshowerdoor.com/",
+    image: "/alumax.jpeg",
   },
   {
     title: "CRL Hardware",
     desc: "Reliable shower door hardware for a variety of builds.",
-    href: "/products#crl",
-    image: "/images/products/crl.jpg",
+    href: "https://www.crlaurence.com/",
+    image: "/crl2.png",
   },
   {
     title: "Portals Hinges",
     desc: "Premium hinge solutions designed for performance.",
-    href: "/products#portals",
-    image: "/images/products/portals.jpg",
+    href: "https://www.portalshardware.com/",
+    image: "/serport.jpg",
   },
 ];
 
@@ -59,7 +59,7 @@ export default function HomePage() {
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
             <p className="inline-flex items-center rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600">
-              Bath enclosures • Shower door hardware • Trusted brands
+              Heavy Glass • Shower door hardware • Trusted brands
             </p>
 
             <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
@@ -67,8 +67,7 @@ export default function HomePage() {
             </h1>
 
             <p className="mt-4 text-lg leading-relaxed text-slate-600">
-              A customer-first partner for quality product lines, reliable supply, and
-              straightforward support.
+              A customer-first partner for heavy shower door glass, quality product lines and reliable support.
             </p>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -111,13 +110,11 @@ export default function HomePage() {
                 <img
                   src="/serf2.jpg"
                   alt="Glass enclosure and hardware"
-                  className="h-96 w-full object-cover object-top rounded-2xl"
+                  className="h-full w-full object-cover object-top rounded-2xl"
                   loading="lazy"
                 />
               </div>
-              <div className="p-4 text-sm text-slate-600">
-                Built for a clean, premium look — designed to convert without clutter.
-              </div>
+              
             </div>
           </div>
         </div>
@@ -153,12 +150,6 @@ export default function HomePage() {
               Explore enclosure systems and hardware built to last.
             </p>
           </div>
-          <a
-            href="/products"
-            className="hidden rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold hover:bg-slate-50 sm:inline-flex"
-          >
-            View all
-          </a>
         </div>
 
         <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
