@@ -109,9 +109,9 @@ export default function HomePage() {
               <div className="aspect-[4/3] w-full">
                 {/* Replace with a real hero image */}
                 <img
-                  src="/images/hero.jpg"
+                  src="/serf2.jpg"
                   alt="Glass enclosure and hardware"
-                  className="h-full w-full object-cover"
+                  className="h-96 w-full object-cover object-top rounded-2xl"
                   loading="lazy"
                 />
               </div>
