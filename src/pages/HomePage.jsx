@@ -6,14 +6,15 @@ const brands = [
   { name: "Alumax", href: "https://www.alumaxshowerdoor.com/" },
   { name: "CRL", href: "https://www.crlaurence.com/" },
   { name: "Portals", href: "https://www.portalshardware.com/" },
-  { name: "Heavy Glass", href: "/products#heavy-glass" },
+  // Since this is a single-page scroll site right now, point Heavy Glass to Products section.
+  { name: "Heavy Glass", href: "#products" },
 ];
 
 const productCards = [
   {
     title: "Heavy Glass Enclosures",
-    desc: "Clean lines, durable components, premium feel.",
-    href: "/products#heavy-glass",
+    desc: '3/8" and 3/16" heavy glass for premium shower door projects.',
+    action: "modal",
     image: "/serf3.jpg",
   },
   {
@@ -122,12 +123,9 @@ function RequestInfoModal({ open, onClose }) {
             <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
               Fax
             </p>
-            <a
-              href="mailto:info@serfassociates.com"
-              className="mt-1 inline-block text-sm font-semibold text-slate-900 hover:underline"
-            >
+            <p className="mt-1 text-sm font-semibold text-slate-900">
               (815) 469-9353
-            </a>
+            </p>
           </div>
         </div>
 
@@ -139,7 +137,7 @@ function RequestInfoModal({ open, onClose }) {
             Close
           </button>
           <a
-            href="tel:+10000000000"
+            href="tel:+18154699330"
             className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
           >
             Call Now
@@ -172,7 +170,10 @@ export default function HomePage() {
       <Navbar />
 
       {/* HERO */}
-      <section className="scroll-mt-24 mx-auto max-w-6xl px-4 pt-14 pb-10 sm:pt-20" id="top">
+      <section
+        className="scroll-mt-24 mx-auto max-w-6xl px-4 pt-14 pb-10 sm:pt-20"
+        id="top"
+      >
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
             <p className="inline-flex items-center rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600">
@@ -245,23 +246,31 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-wrap gap-2">
-              {brands.map((b) => (
-                <a
-                  key={b.name}
-                  href={b.href}
-                  className="rounded-full border border-slate-200 px-3 py-1 text-sm text-slate-600 hover:bg-slate-50"
-                  target="_blank"
-                >
-                  {b.name}
-                </a>
-              ))}
+              {brands.map((b) => {
+                const isExternal = b.href.startsWith("http");
+                return (
+                  <a
+                    key={b.name}
+                    href={b.href}
+                    className="rounded-full border border-slate-200 px-3 py-1 text-sm text-slate-600 hover:bg-slate-50"
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noreferrer" : undefined}
+                  >
+                    {b.name}
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
 
       {/* PRODUCTS */}
-      <section ref={productsRef} className="scroll-mt-24 mx-auto max-w-6xl px-4 py-12" id="products">
+      <section
+        ref={productsRef}
+        className="scroll-mt-24 mx-auto max-w-6xl px-4 py-12"
+        id="products"
+      >
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl font-semibold tracking-tight">Products</h2>
@@ -272,34 +281,57 @@ export default function HomePage() {
         </div>
 
         <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {productCards.map((p) => (
-            <a
-              key={p.title}
-              href={p.href}
-              target={p.href.startsWith("http") ? "_blank" : undefined}
-              rel={p.href.startsWith("http") ? "noreferrer" : undefined}
-              className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <div className="aspect-[16/10] w-full bg-slate-100">
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-base font-semibold">{p.title}</h3>
-                <p className="mt-1 text-sm text-slate-600">{p.desc}</p>
-                <div className="mt-3 text-sm font-semibold text-slate-900">
-                  Explore{" "}
-                  <span className="ml-1 inline-block transition group-hover:translate-x-0.5">
-                    →
-                  </span>
+          {productCards.map((p) => {
+            const isModal = p.action === "modal";
+
+            const CardInner = (
+              <>
+                <div className="aspect-[16/10] w-full bg-slate-100">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
                 </div>
-              </div>
-            </a>
-          ))}
+                <div className="p-4">
+                  <h3 className="text-base font-semibold">{p.title}</h3>
+                  <p className="mt-1 text-sm text-slate-600">{p.desc}</p>
+                  <div className="mt-3 text-sm font-semibold text-slate-900">
+                    {isModal ? "Request Info" : "Explore"}{" "}
+                    <span className="ml-1 inline-block transition group-hover:translate-x-0.5">
+                      →
+                    </span>
+                  </div>
+                </div>
+              </>
+            );
+
+            if (isModal) {
+              return (
+                <button
+                  key={p.title}
+                  type="button"
+                  onClick={() => setIsInfoOpen(true)}
+                  className="group text-left overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                >
+                  {CardInner}
+                </button>
+              );
+            }
+
+            return (
+              <a
+                key={p.title}
+                href={p.href}
+                target={p.href?.startsWith("http") ? "_blank" : undefined}
+                rel={p.href?.startsWith("http") ? "noreferrer" : undefined}
+                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+              >
+                {CardInner}
+              </a>
+            );
+          })}
         </div>
       </section>
 
@@ -362,7 +394,6 @@ export default function HomePage() {
               A quick look behind the scenes — our team and workflow are set up to support
               dependable fulfillment and consistent quality.
             </p>
-
           </div>
         </div>
       </section>
@@ -397,9 +428,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      
-      <Footer />
 
+      <Footer />
     </main>
   );
 }
