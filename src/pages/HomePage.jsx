@@ -176,13 +176,27 @@ export default function HomePage() {
       >
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <p className="inline-flex items-center rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600">
+            <p className="hidden lg:inline-flex items-center rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600">
               Heavy Glass • Shower door hardware • Trusted brands
             </p>
 
             <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
               Premium bath enclosures & shower door hardware.
             </h1>
+
+            {/* Mobile-only hero image */}
+            <div className="mt-6 lg:hidden">
+              <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm">
+                <div className="aspect-[4/3] w-full">
+                  <img
+                    src="/serf2.jpg"
+                    alt="Glass enclosure and hardware"
+                    className="h-full w-full object-cover object-top rounded-2xl"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
 
             <p className="mt-4 text-lg leading-relaxed text-slate-600">
               A customer-first supplier for heavy shower door glass, quality product lines and
@@ -223,7 +237,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative hidden lg:block">
             <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-slate-100 to-white" />
             <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm">
               <div className="aspect-[4/3] w-full">
