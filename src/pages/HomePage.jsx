@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const brands = [
-  { name: "Alumax", href: "/products#alumax" },
-  { name: "CRL", href: "/products#crl" },
-  { name: "Portals", href: "/products#portals" },
+  { name: "Alumax", href: "https://www.alumaxshowerdoor.com/" },
+  { name: "CRL", href: "https://www.crlaurence.com/" },
+  { name: "Portals", href: "https://www.portalshardware.com/" },
   { name: "Heavy Glass", href: "/products#heavy-glass" },
 ];
 
@@ -24,7 +24,7 @@ const productCards = [
     title: "CRL Hardware",
     desc: "Reliable shower door hardware for a variety of builds.",
     href: "https://www.crlaurence.com/",
-    image: "/crl2.png",
+    image: "/crl.jpg",
   },
   {
     title: "Portals Hinges",
@@ -100,10 +100,10 @@ function RequestInfoModal({ open, onClose }) {
               Phone
             </p>
             <a
-              href="tel:+10000000000"
+              href="tel:+18154699330"
               className="mt-1 inline-block text-sm font-semibold text-slate-900 hover:underline"
             >
-              (000) 000-0000
+              (815) 469-9330
             </a>
           </div>
 
@@ -112,19 +112,19 @@ function RequestInfoModal({ open, onClose }) {
               Address
             </p>
             <p className="mt-1 text-sm text-slate-700">
-              123 Example St, City, ST 00000
+              6370 W. Emerald Parkway, Monee, IL 60449
             </p>
           </div>
 
           <div>
             <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
-              Email
+              Fax
             </p>
             <a
               href="mailto:info@serfassociates.com"
               className="mt-1 inline-block text-sm font-semibold text-slate-900 hover:underline"
             >
-              info@serfassociates.com
+              (815) 469-9353
             </a>
           </div>
         </div>
@@ -180,7 +180,7 @@ export default function HomePage() {
             </h1>
 
             <p className="mt-4 text-lg leading-relaxed text-slate-600">
-              A customer-first partner for heavy shower door glass, quality product lines and
+              A customer-first supplier for heavy shower door glass, quality product lines and
               reliable support.
             </p>
 
@@ -190,7 +190,7 @@ export default function HomePage() {
                 onClick={() => setIsInfoOpen(true)}
                 className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-slate-800"
               >
-                Request Info
+                Contact Us
               </button>
 
               <button
@@ -246,6 +246,7 @@ export default function HomePage() {
                   key={b.name}
                   href={b.href}
                   className="rounded-full border border-slate-200 px-3 py-1 text-sm text-slate-600 hover:bg-slate-50"
+                  target="_blank"
                 >
                   {b.name}
                 </a>
@@ -326,25 +327,25 @@ export default function HomePage() {
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
           <div className="grid grid-cols-2 gap-3">
             <img
-              src="/images/facilities/01.jpg"
+              src="/shop1.jpg"
               alt="Facility photo 1"
-              className="h-44 w-full rounded-2xl object-cover sm:h-56"
+              className="h-44 w-full rounded-2xl object-cover object-top sm:h-56"
               loading="lazy"
             />
             <img
-              src="/images/facilities/02.jpg"
+              src="/shop2.jpg"
               alt="Facility photo 2"
-              className="h-44 w-full rounded-2xl object-cover sm:h-56"
+              className="h-44 w-full rounded-2xl object-cover object-top sm:h-56"
               loading="lazy"
             />
             <img
-              src="/images/facilities/03.jpg"
+              src="/shop3.jpg"
               alt="Facility photo 3"
               className="h-44 w-full rounded-2xl object-cover sm:h-56"
               loading="lazy"
             />
             <img
-              src="/images/facilities/04.jpg"
+              src="/shop4.jpg"
               alt="Facility photo 4"
               className="h-44 w-full rounded-2xl object-cover sm:h-56"
               loading="lazy"
@@ -358,20 +359,6 @@ export default function HomePage() {
               dependable fulfillment and consistent quality.
             </p>
 
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="/facilities"
-                className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
-              >
-                View Facilities
-              </a>
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold hover:bg-slate-50"
-              >
-                Contact Us
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -394,10 +381,10 @@ export default function HomePage() {
                 onClick={() => setIsInfoOpen(true)}
                 className="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-100"
               >
-                Request Info
+                Contact Us
               </button>
               <a
-                href="tel:+10000000000"
+                href="tel:+18154699330"
                 className="inline-flex items-center justify-center rounded-xl border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
               >
                 Call Now
