@@ -374,6 +374,13 @@ export default function HomePage() {
 
       {/* FACILITIES */}
       <section className="scroll-mt-24 mx-auto max-w-6xl px-4 py-12" id="facilities">
+        {/* Mobile-only facilities header */}
+        <div className="mb-6 lg:hidden">
+          <h2 className="text-2xl font-semibold tracking-tight text-center">
+            Our Facilities
+          </h2>
+        </div>
+
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
           <div className="grid grid-cols-2 gap-3">
             <img
@@ -403,7 +410,7 @@ export default function HomePage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight">Our facilities</h2>
+            <h2 className="hidden lg:block text-2xl font-semibold tracking-tight">Our Facilities</h2>
             <p className="mt-2 text-slate-600">
               A quick look behind the scenes — our team and workflow are set up to support
               dependable fulfillment and consistent quality.
