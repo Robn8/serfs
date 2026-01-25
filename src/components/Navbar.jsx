@@ -74,7 +74,7 @@ export default function Navbar() {
           <img
             src="/serf.jpg.png"
             alt="Serfs Associates logo"
-            className="h-10 w-10 rounded-xl object-contain"
+            className="h-16 w-auto rounded-xl object-contain"
           />
           <div className="leading-tight">
             <div className="text-sm font-semibold text-slate-900">Serfs Shower Doors</div>

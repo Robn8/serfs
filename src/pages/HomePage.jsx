@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const brands = [
   { name: "Alumax", href: "https://www.alumaxshowerdoor.com/" },
@@ -171,7 +172,7 @@ export default function HomePage() {
       <Navbar />
 
       {/* HERO */}
-      <section className="mx-auto max-w-6xl px-4 pt-14 pb-10 sm:pt-20" id="top">
+      <section className="scroll-mt-24 mx-auto max-w-6xl px-4 pt-14 pb-10 sm:pt-20" id="top">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
             <p className="inline-flex items-center rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600">
@@ -260,7 +261,7 @@ export default function HomePage() {
       </section>
 
       {/* PRODUCTS */}
-      <section ref={productsRef} className="mx-auto max-w-6xl px-4 py-12" id="products">
+      <section ref={productsRef} className="scroll-mt-24 mx-auto max-w-6xl px-4 py-12" id="products">
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl font-semibold tracking-tight">Products</h2>
@@ -303,7 +304,7 @@ export default function HomePage() {
       </section>
 
       {/* WHY */}
-      <section className="mx-auto max-w-6xl px-4 py-12" id="why">
+      <section className="scroll-mt-24 mx-auto max-w-6xl px-4 py-12" id="why">
         <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:p-10">
           <h2 className="text-2xl font-semibold tracking-tight">Why Serfs</h2>
           <p className="mt-2 max-w-2xl text-slate-600">
@@ -326,7 +327,7 @@ export default function HomePage() {
       </section>
 
       {/* FACILITIES */}
-      <section className="mx-auto max-w-6xl px-4 py-12" id="facilities">
+      <section className="scroll-mt-24 mx-auto max-w-6xl px-4 py-12" id="facilities">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
           <div className="grid grid-cols-2 gap-3">
             <img
@@ -396,6 +397,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      
+      <Footer />
+
     </main>
   );
 }
