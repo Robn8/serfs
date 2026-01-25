@@ -171,7 +171,7 @@ export default function HomePage() {
 
       {/* HERO */}
       <section
-        className="scroll-mt-24 mx-auto max-w-6xl px-4 pt-14 pb-10 sm:pt-20"
+        className="scroll-mt-24 mx-auto max-w-6xl px-4 pt-6 sm:pt-10 lg:pt-20 pb-10"
         id="top"
       >
         <div className="grid items-center gap-10 lg:grid-cols-2">
