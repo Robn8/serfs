@@ -376,7 +376,7 @@ export default function HomePage() {
       <section className="scroll-mt-24 mx-auto max-w-6xl px-4 py-12" id="facilities">
         {/* Mobile-only facilities header */}
         <div className="mb-6 lg:hidden">
-          <h2 className="text-2xl font-semibold tracking-tight text-center">
+          <h2 className="text-2xl font-semibold tracking-tight ">
             Our Facilities
           </h2>
         </div>
