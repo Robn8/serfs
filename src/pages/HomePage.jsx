@@ -115,7 +115,7 @@ function RequestInfoModal({ open, onClose }) {
               Address
             </p>
             <p className="mt-1 text-sm text-slate-700">
-              6370 W. Emerald Parkway, Monee, IL 60449
+              6370 W. Emerald Parkway, Monee, IL 60449 | Units 102-103
             </p>
           </div>
 

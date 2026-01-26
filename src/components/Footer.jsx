@@ -90,6 +90,8 @@ export default function Footer() {
                 6370 W. Emerald Parkway
                 <br />
                 Monee, IL 60449
+                <br />
+                Units 102 - 103
               </li>
             </ul>
           </div>
