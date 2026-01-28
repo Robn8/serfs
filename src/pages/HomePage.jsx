@@ -6,7 +6,6 @@ const brands = [
   { name: "Alumax", href: "https://www.alumaxshowerdoor.com/" },
   { name: "CRL", href: "https://www.crlaurence.com/" },
   { name: "Portals", href: "https://www.portalshardware.com/" },
-  // Since this is a single-page scroll site right now, point Heavy Glass to Products section.
   { name: "Heavy Glass", href: "#products" },
 ];
 
@@ -20,19 +19,22 @@ const productCards = [
   {
     title: "Alumax Systems",
     desc: "Enclosure systems and components from a trusted brand.",
-    href: "https://www.alumaxshowerdoor.com/",
+    /*href: "https://www.alumaxshowerdoor.com/",*/
+    action: "modal",
     image: "/alumax.jpeg",
   },
   {
     title: "CRL Hardware",
     desc: "Reliable shower door hardware for a variety of builds.",
-    href: "https://www.crlaurence.com/",
+    /*href: "https://www.crlaurence.com/",*/
+    action: "modal",
     image: "/crl.jpg",
   },
   {
     title: "Portals Hinges",
     desc: "Premium hinge solutions designed for performance.",
-    href: "https://www.portalshardware.com/",
+    /*href: "https://www.portalshardware.com/",*/
+    action: "modal",
     image: "/serport.jpg",
   },
 ];
@@ -312,7 +314,8 @@ export default function HomePage() {
                   <h3 className="text-base font-semibold">{p.title}</h3>
                   <p className="mt-1 text-sm text-slate-600">{p.desc}</p>
                   <div className="mt-3 text-sm font-semibold text-slate-900">
-                    {isModal ? "Request Info" : "Explore"}{" "}
+                   {/* {isModal ? "Request Info" : "Explore"}{" "} */}
+                   Request Info
                     <span className="ml-1 inline-block transition group-hover:translate-x-0.5">
                       →
                     </span>
