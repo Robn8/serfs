@@ -50,7 +50,7 @@ const features = [
   },
   {
     title: "Customer-First Support",
-    desc: "Fast answers, practical guidance, and product knowledge.",
+    desc: "Fast answers, practical guidance and product knowledge.",
   },
 ];
 
@@ -357,8 +357,8 @@ export default function HomePage() {
         <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:p-10">
           <h2 className="text-2xl font-semibold tracking-tight">Why Serfs</h2>
           <p className="mt-2 max-w-2xl text-slate-600">
-            A simple, reliable partner approach: quality product lines, clear communication,
-            and support that helps projects move.
+            A simple, reliable partner approach: quality product lines, clear communication
+            and support that helps projects move faster.
           </p>
 
           <div className="mt-8 grid gap-4 md:grid-cols-3">
