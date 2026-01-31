@@ -15,7 +15,7 @@ const productCards = [
     desc: '3/8" and 3/16" heavy glass for premium shower door projects.',
     action: "modal",
     image: "/serf3.jpg",
-    // No external link needed, but you can add one later if you ever want.
+    // No external link needed
     websiteUrl: null,
   },
   {
@@ -52,7 +52,7 @@ const features = [
   },
   {
     title: "Customer-First Support",
-    desc: "Fast answers, practical guidance, and product knowledge.",
+    desc: "Fast answers, practical guidance and product knowledge.",
   },
 ];
 
@@ -91,7 +91,7 @@ function RequestInfoModal({ open, onClose, product }) {
           <div>
             <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
             <p className="mt-1 text-sm text-slate-600">
-              Call us for availability, lead times, and product guidance.
+              Call us for availability, lead times and product guidance.
             </p>
           </div>
 
@@ -320,7 +320,7 @@ export default function HomePage() {
         <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:p-10">
           <h2 className="text-2xl font-semibold tracking-tight">Why Serfs</h2>
           <p className="mt-2 max-w-2xl text-slate-600">
-            A simple, reliable partner approach: quality product lines, clear communication, and
+            A simple, reliable partner approach: quality product lines, clear communication and
             support that helps projects move.
           </p>
 
