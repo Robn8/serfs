@@ -210,7 +210,7 @@ export default function HomePage() {
           {/* TEXT COLUMN */}
           <div>
             {/* H1 stays first */}
-            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl text-center">
               Premium bath enclosures & shower door hardware.
             </h1>
 
@@ -229,7 +229,7 @@ export default function HomePage() {
             </div>
 
             {/* Tagline now below pill */}
-            <p className="mt-4 text-lg leading-relaxed text-slate-600">
+            <p className="mt-4 text-lg leading-relaxed text-slate-600 text-center">
               A customer-first supplier for heavy shower door glass, quality product lines and
               reliable support.
             </p>
@@ -285,18 +285,21 @@ export default function HomePage() {
         </div>
 
         {/* BRAND PILL: below image on mobile, above brand strip */}
-        <p className="mt-6 inline-flex items-center rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600 mx-auto lg:mx-0 lg:mt-4">
-              Heavy Glass • Shower door hardware • Trusted brands
-            </p>
+        <div className="mt-6 flex justify-center lg:justify-start lg:mt-4">
+          <p className="inline-flex items-center rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600">
+            Heavy Glass • Shower door hardware • Trusted brands
+          </p>
+        </div>
+
 
         {/* BRAND STRIP stays below everything */}
         <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-4">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <p className="text-sm font-medium text-slate-700">
+          <div className="flex flex-col items-center gap-3 lg:flex-row lg:justify-between">
+            <p className="text-sm font-medium text-slate-700 text-center lg:text-left">
               Product lines & brands we carry
             </p>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap justify-center gap-2 lg:justify-end">
               {brands.map((b) => {
                 const isExternal = b.href.startsWith("http");
                 return (
@@ -314,6 +317,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+
       </section>
 
 
