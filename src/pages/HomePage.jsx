@@ -202,17 +202,33 @@ export default function HomePage() {
       <Navbar />
 
       {/* HERO */}
-      <section className="scroll-mt-24 mx-auto max-w-6xl px-4 pt-14 pb-10 sm:pt-20" id="top">
+      <section
+        className="scroll-mt-24 mx-auto max-w-6xl px-4 pt-6 sm:pt-10 lg:pt-20 pb-10"
+        id="top"
+      >
         <div className="grid items-center gap-10 lg:grid-cols-2">
+          {/* TEXT COLUMN */}
           <div>
-            <p className="inline-flex items-center rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600">
-              Heavy Glass • Shower door hardware • Trusted brands
-            </p>
-
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
+            {/* H1 stays first */}
+            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
               Premium bath enclosures & shower door hardware.
             </h1>
 
+            {/* MOBILE-ONLY IMAGE right under H1 */}
+            <div className="mt-6 lg:hidden">
+              <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm">
+                <div className="aspect-[4/3] w-full">
+                  <img
+                    src="/serf2.jpg"
+                    alt="Glass enclosure and hardware"
+                    className="h-full w-full object-cover object-top rounded-2xl"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Tagline now below pill */}
             <p className="mt-4 text-lg leading-relaxed text-slate-600">
               A customer-first supplier for heavy shower door glass, quality product lines and
               reliable support.
@@ -221,7 +237,7 @@ export default function HomePage() {
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <button
                 type="button"
-                onClick={() => openModalFor({ title: "General Inquiry", websiteUrl: null })}
+                onClick={() => setIsInfoOpen(true)}
                 className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-slate-800"
               >
                 Contact Us
@@ -235,9 +251,25 @@ export default function HomePage() {
                 View Products
               </button>
             </div>
+
+            <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-sm text-slate-500">
+              <span className="inline-flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                Responsive support
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-sky-500" />
+                Trusted distributors
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-amber-500" />
+                Quality product lines
+              </span>
+            </div>
           </div>
 
-          <div className="relative">
+          {/* DESKTOP-ONLY IMAGE COLUMN (unchanged desktop layout) */}
+          <div className="relative hidden lg:block">
             <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-slate-100 to-white" />
             <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm">
               <div className="aspect-[4/3] w-full">
@@ -252,10 +284,17 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* BRAND STRIP */}
-        <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-4">
+        {/* BRAND PILL: below image on mobile, above brand strip */}
+        <p className="mt-6 inline-flex items-center rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600 mx-auto lg:mx-0 lg:mt-4">
+              Heavy Glass • Shower door hardware • Trusted brands
+            </p>
+
+        {/* BRAND STRIP stays below everything */}
+        <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <p className="text-sm font-medium text-slate-700">Product lines & brands we carry</p>
+            <p className="text-sm font-medium text-slate-700">
+              Product lines & brands we carry
+            </p>
 
             <div className="flex flex-wrap gap-2">
               {brands.map((b) => {
@@ -276,6 +315,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
 
       {/* PRODUCTS */}
       <section ref={productsRef} className="scroll-mt-24 mx-auto max-w-6xl px-4 py-12" id="products">
@@ -341,6 +381,12 @@ export default function HomePage() {
       {/* FACILITIES */}
       <section className="scroll-mt-24 mx-auto max-w-6xl px-4 py-12" id="facilities">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+          {/* MOBILE header first */}
+          <div className="lg:hidden text-center">
+            <h2 className="text-2xl font-semibold tracking-tight">Our facilities</h2>
+          </div>
+
+          {/* Images */}
           <div className="grid grid-cols-2 gap-3">
             <img
               src="/shop1.jpg"
@@ -368,15 +414,25 @@ export default function HomePage() {
             />
           </div>
 
-          <div>
+          {/* Desktop text column (header + description) */}
+          <div className="hidden lg:block">
             <h2 className="text-2xl font-semibold tracking-tight">Our facilities</h2>
             <p className="mt-2 text-slate-600">
-              A quick look behind the scenes — our team and workflow are set up to support dependable
-              fulfillment and consistent quality.
+              A quick look behind the scenes — our team and workflow are set up to support
+              dependable fulfillment and consistent quality.
+            </p>
+          </div>
+
+          {/* Mobile description below pictures */}
+          <div className="lg:hidden text-center">
+            <p className="mt-2 text-slate-600">
+              A quick look behind the scenes — our team and workflow are set up to support
+              dependable fulfillment and consistent quality.
             </p>
           </div>
         </div>
       </section>
+
 
       {/* FINAL CTA */}
       <section className="mx-auto max-w-6xl px-4 pb-16">
