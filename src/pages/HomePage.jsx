@@ -209,8 +209,14 @@ export default function HomePage() {
         <div className="grid items-center gap-10 lg:grid-cols-2">
           {/* TEXT COLUMN */}
           <div>
-            {/* H1 stays first */}
-            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl text-center">
+            {/* BRAND PILL: Desktop-only (hidden on mobile) */}
+            <div className="mt-6 flex justify-center lg:justify-start lg:mt-4 lg:mb-4 lg:block hidden">
+              <p className="inline-flex items-center rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600">
+                Heavy Glass • Shower door hardware • Trusted brands
+              </p>
+            </div>
+            {/* H1 */}
+            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl text-center lg:text-left">
               Premium bath enclosures & shower door hardware.
             </h1>
 
@@ -229,12 +235,12 @@ export default function HomePage() {
             </div>
 
             {/* Tagline now below pill */}
-            <p className="mt-4 text-lg leading-relaxed text-slate-600 text-center">
+            <p className="mt-4 text-lg leading-relaxed text-slate-600 text-center lg:text-left">
               A customer-first supplier for heavy shower door glass, quality product lines and
               reliable support.
             </p>
 
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <div className=" mt-6 flex flex-col gap-3 sm:flex-row">
               <button
                 type="button"
                 onClick={() => setIsInfoOpen(true)}
@@ -285,7 +291,7 @@ export default function HomePage() {
         </div>
 
         {/* BRAND PILL: below image on mobile, above brand strip */}
-        <div className="mt-6 flex justify-center lg:justify-start lg:mt-4">
+        <div className="mt-6 flex justify-center lg:justify-start lg:hidden lg:mt-4">
           <p className="inline-flex items-center rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600">
             Heavy Glass • Shower door hardware • Trusted brands
           </p>
