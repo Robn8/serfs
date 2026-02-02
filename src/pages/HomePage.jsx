@@ -419,7 +419,7 @@ export default function HomePage() {
             <img
               src="/shop4.jpg"
               alt="Facility photo 4"
-              className="h-44 w-full rounded-2xl object-cover sm:h-56"
+              className="h-44 w-full object-top rounded-2xl object-cover sm:h-56"
               loading="lazy"
             />
           </div>
