@@ -367,7 +367,7 @@ export default function HomePage() {
 
       {/* WHY */}
       <section className="scroll-mt-24 mx-auto max-w-6xl px-4 py-12" id="why">
-        <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:p-10">
+        <div className="rounded-3xl border border-slate-200 bg-slate-50 flex flex-col items-center text-center p-6 sm:p-10">
           <h2 className="text-2xl font-semibold tracking-tight text-center">Why Serfs</h2>
           <p className="mt-2 max-w-2xl text-slate-600 text-center">
             A simple, reliable partner approach: quality product lines, clear communication and
