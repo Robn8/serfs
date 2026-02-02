@@ -329,9 +329,9 @@ export default function HomePage() {
 
       {/* PRODUCTS */}
       <section ref={productsRef} className="scroll-mt-24 mx-auto max-w-6xl px-4 py-12" id="products">
-        <div className="flex items-end justify-between gap-4">
+        <div className="flex items-end lg:justify-between justify-center  gap-4">
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight">Products</h2>
+            <h2 className="text-2xl font-semibold tracking-tight text-center lg:text-left">Products</h2>
             <p className="mt-2 text-slate-600">Explore enclosure systems and hardware built to last.</p>
           </div>
         </div>
@@ -368,8 +368,8 @@ export default function HomePage() {
       {/* WHY */}
       <section className="scroll-mt-24 mx-auto max-w-6xl px-4 py-12" id="why">
         <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:p-10">
-          <h2 className="text-2xl font-semibold tracking-tight">Why Serfs</h2>
-          <p className="mt-2 max-w-2xl text-slate-600">
+          <h2 className="text-2xl font-semibold tracking-tight text-center">Why Serfs</h2>
+          <p className="mt-2 max-w-2xl text-slate-600 text-center">
             A simple, reliable partner approach: quality product lines, clear communication and
             support that helps projects move.
           </p>
@@ -378,7 +378,7 @@ export default function HomePage() {
             {features.map((f) => (
               <div
                 key={f.title}
-                className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+                className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center"
               >
                 <h3 className="font-semibold">{f.title}</h3>
                 <p className="mt-2 text-sm text-slate-600">{f.desc}</p>
@@ -449,10 +449,10 @@ export default function HomePage() {
         <div className="rounded-3xl bg-slate-900 p-8 text-white sm:p-10">
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div>
-              <h2 className="text-2xl font-semibold tracking-tight">
+              <h2 className="text-2xl font-semibold tracking-tight text-center">
                 Need help selecting the right hardware or enclosure setup?
               </h2>
-              <p className="mt-2 text-white/80">
+              <p className="mt-2 text-white/80 text-center">
                 Tell us what you’re building — we’ll point you to the right products.
               </p>
             </div>
