@@ -367,9 +367,9 @@ export default function HomePage() {
 
       {/* WHY */}
       <section className="scroll-mt-24 mx-auto max-w-6xl px-4 py-12" id="why">
-        <div className="rounded-3xl border border-slate-200 bg-slate-50 flex flex-col items-center text-center p-6 sm:p-10">
-          <h2 className="text-2xl font-semibold tracking-tight text-center">Why Serfs</h2>
-          <p className="mt-2 max-w-2xl text-slate-600 text-center">
+        <div className="rounded-3xl border border-slate-200 bg-slate-50 flex flex-col lg:text-left text-center p-6 sm:p-10">
+          <h2 className="text-2xl font-semibold tracking-tight lg:text-left text-center">Why Serfs</h2>
+          <p className="mt-2 max-w-2xl text-slate-600 lg:text-left text-center">
             A simple, reliable partner approach: quality product lines, clear communication and
             support that helps projects move.
           </p>
@@ -378,7 +378,7 @@ export default function HomePage() {
             {features.map((f) => (
               <div
                 key={f.title}
-                className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center"
+                className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm lg:text-left text-center"
               >
                 <h3 className="font-semibold">{f.title}</h3>
                 <p className="mt-2 text-sm text-slate-600">{f.desc}</p>
