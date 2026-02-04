@@ -236,7 +236,7 @@ export default function HomePage() {
 
             {/* Tagline now below pill */}
             <p className="mt-4 text-lg leading-relaxed text-slate-600 text-center lg:text-left">
-              A customer-first supplier for heavy shower door glass, quality product lines and
+              A customer-first wholesale supplier for heavy shower door glass, quality product lines and
               reliable support.
             </p>
 
