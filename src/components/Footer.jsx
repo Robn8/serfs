@@ -33,7 +33,7 @@ export default function Footer() {
             </div>
 
             <p className="mt-4 text-sm text-slate-600 max-w-xs mx-auto lg:mx-0 text-center lg:text-left">
-              A customer-first supplier of heavy shower door glass, hardware and trusted
+              A customer-first wholesale supplier of heavy shower door glass, hardware and trusted
               product lines.
             </p>
           </div>
@@ -100,7 +100,7 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-slate-900">Get in touch</h4>
             <p className="mt-3 text-sm text-slate-600">
-              Have questions or need product guidance?
+              Wholesale support for contractors and trade professionals.
             </p>
 
             <a
