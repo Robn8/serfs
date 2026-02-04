@@ -428,7 +428,7 @@ export default function HomePage() {
           <div className="hidden lg:block">
             <h2 className="text-2xl font-semibold tracking-tight">Our facilities</h2>
             <p className="mt-2 text-slate-600">
-              A quick look behind the scenes — our team and workflow are set up to support
+              A quick look behind the scenes. Our team and workflow are set up to support
               dependable fulfillment and consistent quality.
             </p>
           </div>
@@ -450,10 +450,10 @@ export default function HomePage() {
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div>
               <h2 className="text-2xl font-semibold tracking-tight text-center">
-                Need help selecting the right hardware or enclosure setup?
+                Need help sourcing the right glass or hardware for your next project?
               </h2>
               <p className="mt-2 text-white/80 text-center">
-                Tell us what you’re building — we’ll point you to the right products.
+                Contact our team for product details and availability today!
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
